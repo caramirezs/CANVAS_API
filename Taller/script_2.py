@@ -21,10 +21,7 @@ def matricular_usuario(url='', payload={}, token=''):
     else:
         color = Fore.RED
     print(color + f'{r.status_code} >> {r.reason}')
-    if r.status_code == 200:
-        return r
-    else:
-        return None
+    return r
 
 
 string_list = input('Ingrese la lista de cursos separados por coma: ')

@@ -35,7 +35,6 @@ def desmatricular_usuario(url='', token=''):
     prin_status_response(r)
     if r.status_code == 200:
         enrollments = r.json() # esto es una lista de información
-        print(enrollments)
         if len(enrollments) == 0:
             print(Fore.RED + "\t No se encontraron matriculas del usuario")
             return None
@@ -59,8 +58,6 @@ def desmatricular_usuario(url='', token=''):
                                 params=payload, headers=headers)
             if r.status_code == 200:
                 print(f">> WARNING: Se ha eliminado una sección vacía {course_id}")
-
-
     return None
 
 
