@@ -21,28 +21,27 @@ url = f'{api_url}accounts/{account_id}/courses'
 headers = {
     "Authorization": f"Bearer {ACCESS_TOKEN}"
 }
-payolad = {
-    "course[name]": "PRUEBA_OCT_11"
+payload = {
+    "course[name]": "PRUEBA_OCT_11.v2"
 }
 
-#r = requests.post(url=url, headers=headers, data=payolad)
-#prin_status_response(r)
+r = requests.post(url=url, headers=headers, data=payload)
+prin_status_response(r)
 
-#if r.status_code == 200:
-#    response = r.json()
-#    course_id = response["id"]
-#    print(f'Curso creado, id: {response["id"]}')
+if r.status_code == 200:
+    response = r.json()
+    course_id = response["id"]
+    print(f'Curso creado, id: {response["id"]}')
 
-course_id = 62902
 source_course_id = 62739
 
 url = f'{api_url}courses/{course_id}/content_migrations'
 payload = {
-    "migration_type": "canvas_cartridge_importer",
-    "settings[source_course_id]": source_course_id
+    "migration_type": "course_copy_importer",
+    "settings[source_course_id]": str(source_course_id)
 }
 
-r = requests.post(url=url, headers=headers, data=payolad)
+r = requests.post(url=url, headers=headers, data=payload)
 prin_status_response(r)
 if r.status_code == 200:
     response = r.json()
