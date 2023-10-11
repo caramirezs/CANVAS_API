@@ -22,7 +22,8 @@ headers = {
     "Authorization": f"Bearer {ACCESS_TOKEN}"
 }
 payload = {
-    "course[name]": "PRUEBA_OCT_11.v2"
+    "course[name]": "PRUEBA_OCT_11.v3",
+    "enroll_me": True
 }
 
 r = requests.post(url=url, headers=headers, data=payload)
