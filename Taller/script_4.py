@@ -6,7 +6,6 @@ from colorama import Fore, Back, Style, init
 
 init(autoreset=True)  # reset the previous color and style after each line
 ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
-api_url = f'https://poli.instructure.com/api/v1/'
 
 def prin_status_response(r):
     if r.status_code == 200:
